@@ -350,15 +350,12 @@ mostProbableDistance = [];
 index = 1;
 for timeRow = 1:size(modeMatrix,1)
     for wavelengthCol = 1:size(modeMatrix,2)
-        time(index) = timeList(timeRow);
-        wavelength(index) = wavelengths(wavelengthCol);
-        mostProbableDistance(index) = modeMatrix(timeRow, wavelengthCol);        
+        time(wavelengthCol,timeRow) = timeList(timeRow);
+        mostProbableDistance(wavelengthCol,timeRow) = modeMatrix(timeRow, wavelengthCol);        
         index = index + 1;
     end
 end
-time = time';
-wavelength = wavelength';
-mostProbableDistance = mostProbableDistance';
+
 
 
 
