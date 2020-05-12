@@ -343,7 +343,22 @@ fclose(pdfParamDataFile);
 cd(datafolderpath)
 save('SummaryVariables.mat','modeMatrix','pdfMuList','pdfSigmaList','pdfYValueList','wavelengths')
 
-
+% For origin or python if desired to have a fully column representation
+time = [];
+wavelength = [];
+mostProbableDistance = [];
+index = 1;
+for timeRow = 1:size(modeMatrix,1)
+    for wavelengthCol = 1:size(modeMatrix,2)
+        time(index) = timeList(timeRow);
+        wavelength(index) = wavelengths(wavelengthCol);
+        mostProbableDistance(index) = modeMatrix(timeRow, wavelengthCol);        
+        index = index + 1;
+    end
+end
+time = time';
+wavelength = wavelength';
+mostProbableDistance = mostProbableDistance';
 
 
 
